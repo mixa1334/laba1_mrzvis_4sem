@@ -23,8 +23,6 @@ var table;
 
 function main() {
 
-    //проверка введенных данных
-
     table = document.getElementById('Table');
 
     readInput();
@@ -33,8 +31,6 @@ function main() {
         return;
     }
 
-
-    // Создание таблицы
 
     table.innerHTML = "";
 
@@ -52,14 +48,12 @@ function main() {
 
     fillTable();
 
-    //вывод результата
     document.getElementById('ResultMassage').innerHTML = "Результат: " + resultArray + ";</br>Ку = " + (vectorsLength * digitCapacity) / (vectorsLength + digitCapacity - 1)
                                                         + ";</br>e = " + (vectorsLength * digitCapacity) / (vectorsLength + digitCapacity - 1) / digitCapacity + ";</br>";
 
 }
 
 function isDataIncorrect(){
-    // Обработка исключений
     if(timeInt.length != 1 || !timeInt[0].match(/^\d+$/) || timeInt[0] <= 0){
         alert("Ошибка! Время должно задаваться положительным целочисленным параметром.");
         return true;
@@ -88,13 +82,11 @@ function isDataIncorrect(){
 
 function readInput() {
 
-    // Функция считывания введенных данных
     document.getElementById('ResultMassage').innerHTML = "";
 
     secondElemArray = [];
     firstElemArray = [];
 
-    // преобразование в массив строк
     firstElemArray = document.getElementById('InputPairFirstElem').value.split(',');
     secondElemArray = document.getElementById('InputPairSecondElem').value.split(',');
     timeInt = document.getElementById('Time').value.split(',');
@@ -163,7 +155,6 @@ function fillTable() {
     }
 }
 
-//Функция добавления нулей (для приведения к определенной разрядности)
 function addZeros(array, number) {
     var numberOfZeros = number - array.length;
 
@@ -173,7 +164,6 @@ function addZeros(array, number) {
     return array;
 }
 
-//функции добавления нулей в конец и начало, а так же разделения битов(для реализации сдвига)
 function addZerosRight(binString, numberOfZeros) {
     for (var i = 0; i < numberOfZeros; i++){
         binString = binString + "0";
